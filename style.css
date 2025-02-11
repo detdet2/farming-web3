@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game-container {
+  text-align: center;
+}
+
+.farm {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.crop {
+  width: 80px;
+  height: 80px;
+  margin: 0 10px;
+  background-color: lightgreen;
+  border-radius: 10px;
+  transition: background-color 0.5s;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+#status {
+  margin-top: 20px;
+  font-size: 18px;
+}
