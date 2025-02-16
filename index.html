@@ -2,52 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farming Game</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      text-align: center;
+      padding: 50px;
+    }
+    #game {
+      display: inline-block;
+      background: #fff;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .counter {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="game-container">
-  <!-- Gold and Energy UI -->
-  <div class="stats">
-    <div class="stat">
-      <span>Gold:</span>
-      <span id="gold">100</span>
-    </div>
-    <div class="stat">
-      <span>Energy:</span>
-      <span id="energy">10</span>
-    </div>
+  <div id="game">
+    <h1>Farming Game</h1>
+    <div class="counter">Gold: <span id="gold">100</span></div>
+    <div class="counter">Energy: <span id="energy">50</span></div>
+    <button id="plantBtn">Plant (cost 10 energy)</button>
+    <button id="harvestBtn">Harvest (cost 5 energy, earn 20 gold)</button>
+    <button id="refillEnergyBtn">Refill Energy (cost 30 gold, add 40 energy)</button>
   </div>
 
-  <h1>Farming Game</h1>
-  <div class="farm">
-    <div class="crop" id="crop-1"></div>
-    <div class="crop" id="crop-2"></div>
-    <div class="crop" id="crop-3"></div>
-  </div>
-  <div class="controls">
-    <button id="plant-btn">Plant Crops</button>
-    <button id="water-btn">Water Crops</button>
-    <button id="harvest-btn">Harvest Crops</button>
-  </div>
-  <div id="status"></div>
-</div>
-  <div class="game-container">
-    <h1>Farming Game</h1>
-    <div class="farm">
-      <div class="crop" id="crop-1"></div>
-      <div class="crop" id="crop-2"></div>
-      <div class="crop" id="crop-3"></div>
-    </div>
-    <div class="controls">
-      <button id="plant-btn">Plant Crops</button>
-      <button id="water-btn">Water Crops</button>
-      <button id="harvest-btn">Harvest Crops</button>
-    </div>
-    <div id="status"></div>
-  </div>
-  
-  <script src="script.js"></script>
+  <script>
+    // Starting values
+    let gold = 100;
+    let energy = 50;
+
+    // Get elements from the DOM
+    const goldDisplay = document.getElementById('gold');
+    const energyDisplay = document.getElementById('energy');
+    const plantBtn = document.getElementById('plantBtn');
+    const harvestBtn = document.getElementById('harvestBtn');
+    const refillEnergyBtn = document.getElementById('refillEnergyBtn');
+
+    // Function to update the counters on the page
+    function updateDisplay() {
+      goldDisplay.textContent = gold;
+      energyDisplay.textContent = energy;
+    }
+
+    // Planting a crop costs 10 energy.
+    plantBtn.addEventListener('click', () => {
+      if (energy >= 10) {
+        energy -= 10;
+        alert("You planted a crop!");
+      } else {
+        alert("Not enough energy to plant!");
+      }
+      updateDisplay();
+    });
+
+    // Harvesting costs 5 energy but gives 20 gold.
+    harvestBtn.addEventListener('click', () => {
+      if (energy >= 5) {
+        energy -= 5;
+        gold += 20;
+        alert("You harvested a crop and earned 20 gold!");
+      } else {
+        alert("Not enough energy to harvest!");
+      }
+      updateDisplay();
+    });
+
+    // Refill Energy button costs 30 gold and adds 40 energy.
+    refillEnergyBtn.addEventListener('click', () => {
+      if (gold >= 30) {
+        gold -= 30;
+        energy += 40;
+        alert("Energy refilled!");
+      } else {
+        alert("Not enough gold to refill energy!");
+      }
+      updateDisplay();
+    });
+
+    // Initialize the display
+    updateDisplay();
+  </script>
 </body>
 </html>
