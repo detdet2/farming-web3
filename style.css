@@ -48,3 +48,26 @@ body {
   font-size: 18px;
   color: #333;
 }
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat span:first-child {
+  font-weight: bold;
+}
+
+.stat span:last-child {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
