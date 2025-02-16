@@ -12,6 +12,13 @@
     <img src="bg.jpg" alt="Farm Backyard" class="farm-image">
     <div class="stats">Gold: <span id="gold">100</span></div>
     <div class="stats">Energy: <span id="energy">50</span></div>
+    
+    <div class="farm-field">
+      <div class="plant-slot" id="slot1" onclick="plantCrop(1)"></div>
+      <div class="plant-slot" id="slot2" onclick="plantCrop(2)"></div>
+      <div class="plant-slot" id="slot3" onclick="plantCrop(3)"></div>
+    </div>
+    
     <button onclick="plantCrop()">Plant Crop (-10 Energy)</button>
     <button onclick="harvestCrop()">Harvest Crop (-5 Energy, +20 Gold)</button>
     <button onclick="refillEnergy()">Refill Energy (-30 Gold, +40 Energy)</button>
